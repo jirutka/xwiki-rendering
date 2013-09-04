@@ -1,0 +1,50 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping inside a table cells.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="table">
+        <block name="tableRow">
+            <block name="tableCell">
+                <block name="word">
+                    <word>Cell</word>
+                </block>
+                <block name="space"></block>
+            </block>
+            <block name="tableCell">
+                <block name="word">
+                    <word>with</word>
+                </block>
+                <block name="space"></block>
+                <block name="specialSymbol">
+                    <symbol type="char">|</symbol>
+                </block>
+                <block name="space"></block>
+            </block>
+        </block>
+        <block name="tableRow">
+            <block name="tableCell">
+                <block name="word">
+                    <word>Not</word>
+                </block>
+                <block name="space"></block>
+            </block>
+            <block name="tableCell">
+                <block name="specialSymbol">
+                    <symbol type="char">*</symbol>
+                </block>
+                <block name="space"></block>
+                <block name="word">
+                    <word>escape</word>
+                </block>
+            </block>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+|------|----------|
+| Cell | with \|  |
+| Not  | * escape |
+

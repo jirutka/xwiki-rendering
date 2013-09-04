@@ -1,0 +1,72 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of links patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="word">
+            <word>Not</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">[</symbol>
+        </block>
+        <block name="word">
+            <word>link</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">]</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">(</symbol>
+        </block>
+        <block name="word">
+            <word>there</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">)</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">,</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>even</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">[</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">[</symbol>
+        </block>
+        <block name="word">
+            <word>there</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">]</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">]</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">.</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>Some</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">[</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>special</word>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+Not \[link](there), even \[[there]]. Some \[ special

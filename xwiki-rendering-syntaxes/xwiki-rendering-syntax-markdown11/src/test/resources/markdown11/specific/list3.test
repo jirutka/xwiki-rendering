@@ -1,0 +1,87 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test list with a blockquote and a code block.
+.#-----------------------------------------------------
+*   A list item with a blockquote:
+    
+    > This is a blockquote  
+    > inside a list item.
+    
+*   A list item with a code:
+    
+    ```
+    puts Hello!
+    ```
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginList [BULLETED]
+beginListItem
+beginParagraph
+onWord [A]
+onSpace
+onWord [list]
+onSpace
+onWord [item]
+onSpace
+onWord [with]
+onSpace
+onWord [a]
+onSpace
+onWord [blockquote]
+onSpecialSymbol [:]
+endParagraph
+beginQuotation
+beginQuotationLine
+onWord [This]
+onSpace
+onWord [is]
+onSpace
+onWord [a]
+onSpace
+onWord [blockquote]
+onNewLine
+onWord [inside]
+onSpace
+onWord [a]
+onSpace
+onWord [list]
+onSpace
+onWord [item]
+onSpecialSymbol [.]
+endQuotationLine
+endQuotation
+endListItem
+beginListItem
+beginParagraph
+onWord [A]
+onSpace
+onWord [list]
+onSpace
+onWord [item]
+onSpace
+onWord [with]
+onSpace
+onWord [a]
+onSpace
+onWord [code]
+onSpecialSymbol [:]
+endParagraph
+onMacroStandalone [code] [] [puts Hello!]
+endListItem
+endList [BULLETED]
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+*   A list item with a blockquote:
+    
+    > This is a blockquote  
+    > inside a list item.
+
+*   A list item with a code:
+    
+    ```
+    puts Hello!
+    ```

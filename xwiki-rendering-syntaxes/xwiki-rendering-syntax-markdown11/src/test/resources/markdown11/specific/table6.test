@@ -1,0 +1,18 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test table padding.
+.#-----------------------------------------------------
+| col1  | col2 | col3 |
+|-------|------|------|
+| Lorem | ipsum dolor sit amet | consectetuer adipiscing elit |
+| Etiam neque | Duis bibendum | lectus ut viverra rhoncus |
+| dolor | nunc faucibus | eget facilisis enim ipsum id lacus | 
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+| col1        | col2                 | col3                               |
+|-------------|----------------------|------------------------------------|
+| Lorem       | ipsum dolor sit amet | consectetuer adipiscing elit       |
+| Etiam neque | Duis bibendum        | lectus ut viverra rhoncus          |
+| dolor       | nunc faucibus        | eget facilisis enim ipsum id lacus |
+

@@ -1,0 +1,32 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test smart dashes.
+.#-----------------------------------------------------
+En dash --
+
+Em dash ---
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginParagraph
+onWord [En]
+onSpace
+onWord [dash]
+onSpace
+onSpecialSymbol [(((8211)))]
+endParagraph
+beginParagraph
+onWord [Em]
+onSpace
+onWord [dash]
+onSpace
+onSpecialSymbol [(((8212)))]
+endParagraph
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+En dash –
+
+Em dash —

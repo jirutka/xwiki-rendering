@@ -1,0 +1,131 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test blockquote with two paragraphs indented lazily.
+.#-----------------------------------------------------
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginQuotation
+beginQuotationLine
+onWord [This]
+onSpace
+onWord [is]
+onSpace
+onWord [a]
+onSpace
+onWord [blockquote]
+onSpace
+onWord [with]
+onSpace
+onWord [two]
+onSpace
+onWord [paragraphs]
+onSpecialSymbol [.]
+onSpace
+onWord [Lorem]
+onSpace
+onWord [ipsum]
+onSpace
+onWord [dolor]
+onSpace
+onWord [sit]
+onSpace
+onWord [amet]
+onSpecialSymbol [,]
+onSpace
+onWord [consectetuer]
+onSpace
+onWord [adipiscing]
+onSpace
+onWord [elit]
+onSpecialSymbol [.]
+onSpace
+onWord [Aliquam]
+onSpace
+onWord [hendrerit]
+onSpace
+onWord [mi]
+onSpace
+onWord [posuere]
+onSpace
+onWord [lectus]
+onSpecialSymbol [.]
+onSpace
+onWord [Vestibulum]
+onSpace
+onWord [enim]
+onSpace
+onWord [wisi]
+onSpecialSymbol [,]
+onSpace
+onWord [viverra]
+onSpace
+onWord [nec]
+onSpecialSymbol [,]
+onSpace
+onWord [fringilla]
+onSpace
+onWord [in]
+onSpecialSymbol [,]
+onSpace
+onWord [laoreet]
+onSpace
+onWord [vitae]
+onSpecialSymbol [,]
+onSpace
+onWord [risus]
+onSpecialSymbol [.]
+endQuotationLine
+beginQuotationLine
+onWord [Donec]
+onSpace
+onWord [sit]
+onSpace
+onWord [amet]
+onSpace
+onWord [nisl]
+onSpecialSymbol [.]
+onSpace
+onWord [Aliquam]
+onSpace
+onWord [semper]
+onSpace
+onWord [ipsum]
+onSpace
+onWord [sit]
+onSpace
+onWord [amet]
+onSpace
+onWord [velit]
+onSpecialSymbol [.]
+onSpace
+onWord [Suspendisse]
+onSpace
+onWord [id]
+onSpace
+onWord [sem]
+onSpace
+onWord [consectetuer]
+onSpace
+onWord [libero]
+onSpace
+onWord [luctus]
+onSpace
+onWord [adipiscing]
+onSpecialSymbol [.]
+endQuotationLine
+endQuotation
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+> 
+> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing.

@@ -1,6 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test standalone code using fenced blocks
+.# Test standalone code using indented block.
 .#-----------------------------------------------------
     code line1
     code line2

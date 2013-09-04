@@ -1,6 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test Markdown-style macro without parameters and content
+.# Test Markdown-style macro without parameters and content.
 .#-----------------------------------------------------
 This is inline #[mymacro], look at it!
 .#-----------------------------------------------------
@@ -25,3 +25,7 @@ onWord [it]
 onSpecialSymbol [!]
 endParagraph
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+This is inline #[mymacro], look at it!

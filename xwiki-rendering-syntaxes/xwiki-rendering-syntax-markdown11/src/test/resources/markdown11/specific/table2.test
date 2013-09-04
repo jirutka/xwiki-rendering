@@ -1,30 +1,71 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test table alignemnt
+.# Test table colspan.
 .#-----------------------------------------------------
-:-----|-----:|----|:---:
-Cool  | Shit | in | here
+| col1     | col2      | col3   |
+|----------|-----------|--------|
+| cell11   | cell12-3          ||
+| cell21-2            || cell23 |
+| cell31-3                    |||
 .#-----------------------------------------------------
 .expect|event/1.0
 .#-----------------------------------------------------
 beginDocument
 beginTable
 beginTableRow
-beginTableCell [[align]=[left]]
-onWord [Cool]
+beginTableHeadCell
+onWord [col1]
 onSpace
-endTableCell [[align]=[left]]
-beginTableCell [[align]=[right]]
-onWord [Shit]
+endTableHeadCell
+beginTableHeadCell
+onWord [col2]
 onSpace
-endTableCell [[align]=[right]]
+endTableHeadCell
+beginTableHeadCell
+onWord [col3]
+onSpace
+endTableHeadCell
+endTableRow
+beginTableRow
 beginTableCell
-onWord [in]
+onWord [cell11]
 onSpace
 endTableCell
-beginTableCell [[align]=[center]]
-onWord [here]
-endTableCell [[align]=[center]]
+beginTableCell [[colspan]=[2]]
+onWord [cell12]
+onSpecialSymbol [-]
+onWord [3]
+onSpace
+endTableCell [[colspan]=[2]]
+endTableRow
+beginTableRow
+beginTableCell [[colspan]=[2]]
+onWord [cell21]
+onSpecialSymbol [-]
+onWord [2]
+onSpace
+endTableCell [[colspan]=[2]]
+beginTableCell
+onWord [cell23]
+onSpace
+endTableCell
+endTableRow
+beginTableRow
+beginTableCell [[colspan]=[3]]
+onWord [cell31]
+onSpecialSymbol [-]
+onWord [3]
+onSpace
+endTableCell [[colspan]=[3]]
 endTableRow
 endTable
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+| col1     | col2     | col3   |
+|----------|----------|--------|
+| cell11   | cell12-3         ||
+| cell21-2           || cell23 |
+| cell31-3                   |||
+

@@ -1,0 +1,42 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of atx-style section heading patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="specialSymbol">
+            <symbol type="char">#</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>Heading</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="word">
+            <word>not</word>
+        </block>
+    </block>
+    <block name="paragraph">
+        <block name="specialSymbol">
+            <symbol type="char">#</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">#</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>Heading</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>not</word>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+\# Heading  
+not
+
+\## Heading not

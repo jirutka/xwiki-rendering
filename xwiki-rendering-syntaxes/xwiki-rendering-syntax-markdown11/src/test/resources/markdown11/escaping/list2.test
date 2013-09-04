@@ -1,0 +1,38 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of numbered list patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="word">
+            <word>1</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">.</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>Numbered</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>list</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="word">
+            <word>42</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">.</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>list</word>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+1\. Numbered list  
+42\. list

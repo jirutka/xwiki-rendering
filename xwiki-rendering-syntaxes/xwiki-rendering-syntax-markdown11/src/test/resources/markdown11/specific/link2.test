@@ -1,6 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test reference links when the reference doesn't exist
+.# Test reference links when the reference doesn't exist.
 .#-----------------------------------------------------
 [non existing ref]
 

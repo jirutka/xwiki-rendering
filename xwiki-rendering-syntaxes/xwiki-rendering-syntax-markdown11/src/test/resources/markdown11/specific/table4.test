@@ -1,0 +1,47 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test headless table alignment.
+.#-----------------------------------------------------
+|:-------|:--------:|-------:|
+| cell11 | cell12-3         ||
+| cell21 | cell22   | cell23 |
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginTable
+beginTableRow
+beginTableCell [[align]=[left]]
+onWord [cell11]
+onSpace
+endTableCell [[align]=[left]]
+beginTableCell [[colspan]=[2][align]=[center]]
+onWord [cell12]
+onSpecialSymbol [-]
+onWord [3]
+onSpace
+endTableCell [[colspan]=[2][align]=[center]]
+endTableRow
+beginTableRow
+beginTableCell [[align]=[left]]
+onWord [cell21]
+onSpace
+endTableCell [[align]=[left]]
+beginTableCell [[align]=[center]]
+onWord [cell22]
+onSpace
+endTableCell [[align]=[center]]
+beginTableCell [[align]=[right]]
+onWord [cell23]
+onSpace
+endTableCell [[align]=[right]]
+endTableRow
+endTable
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+|:-------|:--------:|-------:|
+| cell11 | cell12-3         ||
+| cell21 | cell22   | cell23 |
+

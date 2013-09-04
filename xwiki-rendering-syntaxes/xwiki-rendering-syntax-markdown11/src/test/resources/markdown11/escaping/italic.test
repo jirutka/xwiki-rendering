@@ -1,0 +1,81 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of italic formatting patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="word">
+            <word>Not</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">_</symbol>
+        </block>
+        <block name="word">
+            <word>italic</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">_</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>or</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">*</symbol>
+        </block>
+        <block name="word">
+            <word>this</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>one</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">*</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">.</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="format">
+            <format>italic</format>
+            <block name="word">
+                <word>this</word>
+            </block>
+            <block name="specialSymbol">
+                <symbol type="char">_</symbol>
+            </block>
+            <block name="word">
+                <word>is</word>
+            </block>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>italic</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">,</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="format">
+            <format>italic</format>
+            <block name="word">
+                <word>this</word>
+            </block>
+            <block name="space"></block>
+            <block name="specialSymbol">
+                <symbol type="char">*</symbol>
+            </block>
+            <block name="space"></block>
+            <block name="word">
+                <word>too</word>
+            </block>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+Not \_italic_ or \*this one*. _this_is_ italic, _this * too_

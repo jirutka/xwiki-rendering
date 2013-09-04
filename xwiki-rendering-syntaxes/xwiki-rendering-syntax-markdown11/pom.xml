@@ -70,10 +70,9 @@
     </dependency>
     <dependency>
       <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-syntax-markdown10</artifactId>
+      <artifactId>xwiki-rendering-syntax-xdomxml10</artifactId>
       <version>${project.version}</version>
       <scope>test</scope>
-      <type>test-jar</type>
     </dependency>
   </dependencies>
   <build>

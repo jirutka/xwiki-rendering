@@ -1,0 +1,66 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of inline code patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="word">
+            <word>Not</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">`</symbol>
+        </block>
+        <block name="word">
+            <word>inline</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>code</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">`</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>or</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">`</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>this</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">`</symbol>
+        </block>
+    </block>
+    <block name="paragraph">
+        <block name="word">
+            <word>Multiline</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">`</symbol>
+        </block>
+        <block name="word">
+            <word>escape</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="word">
+            <word>too</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">`</symbol>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+Not \`inline code\` or \` this`
+
+Multiline \`escape  
+too`

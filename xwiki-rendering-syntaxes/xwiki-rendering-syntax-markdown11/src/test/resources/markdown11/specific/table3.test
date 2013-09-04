@@ -1,61 +1,63 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test table colspan
+.# Test table alignment.
 .#-----------------------------------------------------
-Names ||
- Name | Firstname | Age
-------|-----------|----:
-  Fox | Peter     | 42
-  Guy | Ritchie   | 60
+| col1   | col2     | col3   |
+|:-------|:--------:|-------:|
+| cell11 | cell12-3         ||
+| cell21 | cell22   | cell23 |
 .#-----------------------------------------------------
 .expect|event/1.0
 .#-----------------------------------------------------
 beginDocument
 beginTable
 beginTableRow
-beginTableHeadCell [[colspan]=[2]]
-onWord [Names]
+beginTableHeadCell [[align]=[left]]
+onWord [col1]
 onSpace
-endTableHeadCell [[colspan]=[2]]
-endTableRow
-beginTableRow
-beginTableHeadCell
-onWord [Name]
+endTableHeadCell [[align]=[left]]
+beginTableHeadCell [[align]=[center]]
+onWord [col2]
 onSpace
-endTableHeadCell
-beginTableHeadCell
-onWord [Firstname]
-onSpace
-endTableHeadCell
+endTableHeadCell [[align]=[center]]
 beginTableHeadCell [[align]=[right]]
-onWord [Age]
+onWord [col3]
+onSpace
 endTableHeadCell [[align]=[right]]
 endTableRow
 beginTableRow
-beginTableCell
-onWord [Fox]
+beginTableCell [[align]=[left]]
+onWord [cell11]
 onSpace
-endTableCell
-beginTableCell
-onWord [Peter]
+endTableCell [[align]=[left]]
+beginTableCell [[colspan]=[2][align]=[center]]
+onWord [cell12]
+onSpecialSymbol [-]
+onWord [3]
 onSpace
-endTableCell
-beginTableCell [[align]=[right]]
-onWord [42]
-endTableCell [[align]=[right]]
+endTableCell [[colspan]=[2][align]=[center]]
 endTableRow
 beginTableRow
-beginTableCell
-onWord [Guy]
+beginTableCell [[align]=[left]]
+onWord [cell21]
 onSpace
-endTableCell
-beginTableCell
-onWord [Ritchie]
+endTableCell [[align]=[left]]
+beginTableCell [[align]=[center]]
+onWord [cell22]
 onSpace
-endTableCell
+endTableCell [[align]=[center]]
 beginTableCell [[align]=[right]]
-onWord [60]
+onWord [cell23]
+onSpace
 endTableCell [[align]=[right]]
 endTableRow
 endTable
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+| col1   | col2     | col3   |
+|:-------|:--------:|-------:|
+| cell11 | cell12-3         ||
+| cell21 | cell22   | cell23 |
+

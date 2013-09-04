@@ -1,0 +1,68 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of bullet list patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="specialSymbol">
+            <symbol type="char">*</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>List</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="specialSymbol">
+            <symbol type="char">+</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>items</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="space"></block>
+        <block name="word">
+            <word>not</word>
+        </block>
+    </block>
+    <block name="list">
+        <type>bulleted</type>
+        <block name="listItem">
+            <block name="word">
+                <word>List</word>
+            </block>
+        </block>
+        <block name="listItem">
+            <block name="word">
+                <word>items</word>
+            </block>
+            <block name="newLine"></block>
+            <block name="space"></block>
+            <block name="space"></block>
+            <block name="space"></block>
+            <block name="space"></block>
+            <block name="specialSymbol">
+                <symbol type="char">*</symbol>
+            </block>
+            <block name="space"></block>
+            <block name="word">
+                <word>not</word>
+            </block>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+\* List  
+\+ items  
+ \-  not
+
+*   List
+*   items  
+    \* not

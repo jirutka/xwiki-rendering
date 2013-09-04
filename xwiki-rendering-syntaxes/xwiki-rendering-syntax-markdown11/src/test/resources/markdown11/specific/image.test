@@ -1,0 +1,17 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test image with a title.
+.#-----------------------------------------------------
+![image](image.png "Some title")
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginParagraph
+onImage [Typed = [false] Type = [url] Reference = [image.png]] [false] [[title]=[Some title][alt]=[image]]
+endParagraph
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+![image](image.png "Some title")

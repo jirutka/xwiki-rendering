@@ -1,6 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test XWiki-style macro without parameters and content
+.# Test XWiki macro without parameters and content.
 .#-----------------------------------------------------
 {{mymacro}}{{/mymacro}}
 .#-----------------------------------------------------
@@ -9,3 +9,7 @@
 beginDocument
 onMacroStandalone [mymacro] []
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+#[mymacro]

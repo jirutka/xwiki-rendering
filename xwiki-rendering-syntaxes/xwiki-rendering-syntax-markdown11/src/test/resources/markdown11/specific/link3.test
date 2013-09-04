@@ -1,0 +1,19 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test link with a title.
+.#-----------------------------------------------------
+[label](http://example.org "Some title")
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginParagraph
+beginLink [Typed = [false] Type = [url] Reference = [http://example.org]] [false] [[title]=[Some title]]
+onWord [label]
+endLink [Typed = [false] Type = [url] Reference = [http://example.org]] [false] [[title]=[Some title]]
+endParagraph
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+[label](http://example.org "Some title")

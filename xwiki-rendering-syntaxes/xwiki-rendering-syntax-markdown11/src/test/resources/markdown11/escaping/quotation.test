@@ -1,0 +1,36 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of blockquote patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="specialSymbol">
+            <symbol type="char">&gt;</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>Quote</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>not</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="specialSymbol">
+            <symbol type="char">&gt;</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">&gt;</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>there</word>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+\> Quote not  
+\> > there

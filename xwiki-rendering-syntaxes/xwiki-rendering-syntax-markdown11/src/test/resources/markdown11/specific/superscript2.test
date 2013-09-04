@@ -33,3 +33,7 @@ onSpecialSymbol [^]
 onSpecialSymbol [.]
 endParagraph
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+This is ^superscript\ with\ spaces^, this is ^ordinary text^.

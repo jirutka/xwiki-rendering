@@ -1,8 +1,8 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test inline XHTML
+.# Test inline HTML.
 .#-----------------------------------------------------
-hello **<del>world</del>** <sup>beta</sup>
+hello **<del>world</del>** <span class="red">all</span>
 .#-----------------------------------------------------
 .expect|event/1.0
 .#-----------------------------------------------------
@@ -16,12 +16,16 @@ onWord [world]
 onRawText [</del>] [xhtml/1.0]
 endFormat [BOLD]
 onSpace
-onRawText [<sup>] [xhtml/1.0]
-onWord [beta]
-onRawText [</sup>] [xhtml/1.0]
+onRawText [<span class="red">] [xhtml/1.0]
+onWord [all]
+onRawText [</span>] [xhtml/1.0]
 endParagraph
 endDocument
 .#-----------------------------------------------------
 .expect|xhtml/1.0
 .#-----------------------------------------------------
-<p>hello <strong><del>world</del></strong> <sup>beta</sup></p>
+<p>hello <strong><del>world</del></strong> <span class="red">all</span></p>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+hello **<del>world</del>** <span class="red">all</span>

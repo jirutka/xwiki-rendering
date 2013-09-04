@@ -1,7 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Code syntax using PHP Markdown Extra, see
-.# http://www.decodified.com/pegdown/api/org/pegdown/Extensions.html#FENCED_CODE_BLOCKS
+.# Test standalone code using Fenced code block.
 .#-----------------------------------------------------
 ```ruby
 require 'redcarpet'
@@ -16,3 +15,11 @@ onMacroStandalone [code] [language=ruby] [require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html]
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```

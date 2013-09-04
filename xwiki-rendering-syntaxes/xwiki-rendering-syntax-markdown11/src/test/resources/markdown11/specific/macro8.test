@@ -1,6 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test Markdown-style macro without content
+.# Test Markdown-style macro without content.
 .#-----------------------------------------------------
 This is inline #[mymacro](par1="val 1" par2='val 2').
 .#-----------------------------------------------------
@@ -18,3 +18,7 @@ onMacroInline [mymacro] [par1=val 1|par2=val 2]
 onSpecialSymbol [.]
 endParagraph
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+This is inline #[mymacro](par1="val 1" par2="val 2").

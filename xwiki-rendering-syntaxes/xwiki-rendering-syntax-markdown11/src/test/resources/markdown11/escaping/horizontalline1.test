@@ -1,0 +1,21 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of horizontal line pattern.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+\---

@@ -1,6 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test block HTML
+.# Test block HTML.
 .#-----------------------------------------------------
 hello
 
@@ -27,3 +27,15 @@ beginParagraph
 onWord [world]
 endParagraph
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+hello
+
+<table>
+  <tr>
+    <td>Foo</td>
+  </tr>
+</table>
+
+world

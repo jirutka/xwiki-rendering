@@ -1,3 +1,8 @@
 org.xwiki.rendering.internal.parser.markdown11.Markdown11Parser
 org.xwiki.rendering.internal.parser.markdown11.Markdown11StreamParser
 org.xwiki.rendering.internal.parser.markdown11.XWikiPegdownVisitor
+org.xwiki.rendering.internal.renderer.markdown11.MarkdownRenderer
+org.xwiki.rendering.internal.renderer.markdown11.MarkdownBlockRenderer
+org.xwiki.rendering.internal.renderer.markdown11.MarkdownRendererFactory
+org.xwiki.rendering.internal.renderer.markdown11.reference.MarkdownResourceReferenceTypeSerializer
+org.xwiki.rendering.internal.renderer.markdown11.reference.MarkdownLinkReferenceSerializer

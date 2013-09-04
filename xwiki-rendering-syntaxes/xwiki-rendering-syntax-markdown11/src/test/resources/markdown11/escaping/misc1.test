@@ -1,0 +1,53 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test if not every *, : or 1 is escaped.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="word">
+            <word>Do</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>not</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">#</symbol>
+        </block>
+        <block name="word">
+            <word>escape</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>every</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">*</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>or</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">:</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>or</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>1</word>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">.</symbol>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+Do not #escape every * or : or 1.

@@ -1,0 +1,87 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test blockquote with header, list and code inside.
+.#-----------------------------------------------------
+> ## This is a header.
+> 
+> 1.  This is the first list item.
+> 2.  This is the second list item.
+> 
+> Here's some example code:
+> 
+>     return shell_exec("echo $input | $markdown_script");
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginSection
+beginQuotation
+beginHeader [2, HThisisaheader.]
+onWord [This]
+onSpace
+onWord [is]
+onSpace
+onWord [a]
+onSpace
+onWord [header]
+onSpecialSymbol [.]
+endHeader [2, HThisisaheader.]
+beginList [NUMBERED]
+beginListItem
+onWord [This]
+onSpace
+onWord [is]
+onSpace
+onWord [the]
+onSpace
+onWord [first]
+onSpace
+onWord [list]
+onSpace
+onWord [item]
+onSpecialSymbol [.]
+endListItem
+beginListItem
+onWord [This]
+onSpace
+onWord [is]
+onSpace
+onWord [the]
+onSpace
+onWord [second]
+onSpace
+onWord [list]
+onSpace
+onWord [item]
+onSpecialSymbol [.]
+endListItem
+endList [NUMBERED]
+beginQuotationLine
+onWord [Here]
+onSpecialSymbol [']
+onWord [s]
+onSpace
+onWord [some]
+onSpace
+onWord [example]
+onSpace
+onWord [code]
+onSpecialSymbol [:]
+onMacroStandalone [code] [] [return shell_exec("echo $input | $markdown_script");]
+endQuotationLine
+endQuotation
+endSection
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+> ## This is a header.
+> 
+> 1.  This is the first list item.
+> 1.  This is the second list item.
+> 
+> Here's some example code:
+> 
+> ```
+> return shell_exec("echo $input | $markdown_script");
+> ```

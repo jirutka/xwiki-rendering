@@ -1,6 +1,6 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test reference links
+.# Test reference links.
 .#-----------------------------------------------------
 This is the [simple case].
 

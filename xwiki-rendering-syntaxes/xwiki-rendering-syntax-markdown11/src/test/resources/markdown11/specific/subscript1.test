@@ -22,3 +22,7 @@ onWord [liquid]
 onSpecialSymbol [.]
 endParagraph
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+H~2~O is a liquid.

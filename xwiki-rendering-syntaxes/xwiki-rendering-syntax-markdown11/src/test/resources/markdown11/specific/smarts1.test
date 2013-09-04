@@ -1,0 +1,26 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test smart ellipsis.
+.#-----------------------------------------------------
+Ellipsis...
+
+Ellipsis. . .
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginParagraph
+onWord [Ellipsis]
+onSpecialSymbol [(((8230)))]
+endParagraph
+beginParagraph
+onWord [Ellipsis]
+onSpecialSymbol [(((8230)))]
+endParagraph
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+Ellipsis…
+
+Ellipsis…

@@ -1,0 +1,119 @@
+.#-----------------------------------------------------
+.input|markdown/1.1
+.# Test list with multiple paragraphs indented lazily.
+.#-----------------------------------------------------
+*   This is a list item with two paragraphs.
+
+    This is the second paragraph in the list item. You're
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.
+
+*   Another item in the same list.
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginList [BULLETED]
+beginListItem
+beginParagraph
+onWord [This]
+onSpace
+onWord [is]
+onSpace
+onWord [a]
+onSpace
+onWord [list]
+onSpace
+onWord [item]
+onSpace
+onWord [with]
+onSpace
+onWord [two]
+onSpace
+onWord [paragraphs]
+onSpecialSymbol [.]
+endParagraph
+beginParagraph
+onWord [This]
+onSpace
+onWord [is]
+onSpace
+onWord [the]
+onSpace
+onWord [second]
+onSpace
+onWord [paragraph]
+onSpace
+onWord [in]
+onSpace
+onWord [the]
+onSpace
+onWord [list]
+onSpace
+onWord [item]
+onSpecialSymbol [.]
+onSpace
+onWord [You]
+onSpecialSymbol [']
+onWord [re]
+onSpace
+onWord [only]
+onSpace
+onWord [required]
+onSpace
+onWord [to]
+onSpace
+onWord [indent]
+onSpace
+onWord [the]
+onSpace
+onWord [first]
+onSpace
+onWord [line]
+onSpecialSymbol [.]
+onSpace
+onWord [Lorem]
+onSpace
+onWord [ipsum]
+onSpace
+onWord [dolor]
+onSpace
+onWord [sit]
+onSpace
+onWord [amet]
+onSpecialSymbol [,]
+onSpace
+onWord [consectetuer]
+onSpace
+onWord [adipiscing]
+onSpace
+onWord [elit]
+onSpecialSymbol [.]
+endParagraph
+endListItem
+beginListItem
+beginParagraph
+onWord [Another]
+onSpace
+onWord [item]
+onSpace
+onWord [in]
+onSpace
+onWord [the]
+onSpace
+onWord [same]
+onSpace
+onWord [list]
+onSpecialSymbol [.]
+endParagraph
+endListItem
+endList [BULLETED]
+endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+*   This is a list item with two paragraphs.
+    
+    This is the second paragraph in the list item. You're only required to indent the first line. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+*   Another item in the same list.

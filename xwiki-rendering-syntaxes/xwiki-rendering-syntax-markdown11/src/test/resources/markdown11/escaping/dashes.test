@@ -1,0 +1,40 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of smart dash pattern.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="word">
+            <word>Not</word>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>dash</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>or</word>
+        </block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+        <block name="specialSymbol">
+            <symbol type="char">-</symbol>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+Not dash \-- or \-\--

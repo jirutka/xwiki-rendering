@@ -1,0 +1,52 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping inside a link.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="link">
+            <reference>
+                <type>url</type>
+                <reference>http://example.org?q=(any)&amp;link</reference>
+                <typed type="bool">false</typed>
+            </reference>
+            <block name="specialSymbol">
+                <symbol type="char">[</symbol>
+            </block>
+            <block name="word">
+                <word>label</word>
+            </block>
+            <block name="specialSymbol">
+                <symbol type="char">]</symbol>
+            </block>
+        </block>
+    </block>
+    <block name="paragraph">
+        <block name="link">
+            <reference>
+                <type>url</type>
+                <reference>http://example.org?q=[here]</reference>
+                <typed type="bool">false</typed>
+            </reference>
+            <block name="word">
+                <word>chunky</word>
+            </block>
+            <block name="space"/>
+            <block name="specialSymbol">
+                <symbol type="char">(</symbol>
+            </block>
+            <block name="word">
+                <word>bacon</word>
+            </block>
+            <block name="specialSymbol">
+                <symbol type="char">)</symbol>
+            </block>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+[\[label\]](http://example.org?q=\(any\)&link)
+
+[chunky (bacon)](http://example.org?q=[here])

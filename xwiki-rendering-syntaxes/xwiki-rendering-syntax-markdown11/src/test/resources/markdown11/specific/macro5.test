@@ -1,8 +1,8 @@
 .#-----------------------------------------------------
 .input|markdown/1.1
-.# Test proper pair matching of XWiki-style macro
+.# Test proper pair matching of XWiki macro.
 .#-----------------------------------------------------
-{{mymacro par1="val1" par2=2}}
+{{mymacro par1="val1" par2="val2"}}
 {{/nomacro}} is not end
 and even {{mymacro}} is just plain content
 {{/mymacro}}
@@ -13,7 +13,7 @@ Markdown
 .expect|event/1.0
 .#-----------------------------------------------------
 beginDocument
-onMacroStandalone [mymacro] [par1=val1|par2=2] [{{/nomacro}} is not end
+onMacroStandalone [mymacro] [par1=val1|par2=val2] [{{/nomacro}} is not end
 and even {{mymacro}} is just plain content
 ]
 beginParagraph
@@ -27,3 +27,12 @@ onSpecialSymbol [}]
 onSpecialSymbol [}]
 endParagraph
 endDocument
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+{{mymacro par1="val1" par2="val2"}}
+{{/nomacro}} is not end
+and even {{mymacro}} is just plain content
+{{/mymacro}}
+
+Markdown {{/mymacro}}

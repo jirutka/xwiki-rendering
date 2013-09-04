@@ -1,0 +1,42 @@
+.#-----------------------------------------------------
+.input|xdom+xml/1.0
+.# Test escaping of definition list patterns.
+.#-----------------------------------------------------
+<block name="document" version="1.0">
+    <block name="paragraph">
+        <block name="word">
+            <word>Definition</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="space"></block>
+        <block name="space"></block>
+        <block name="specialSymbol">
+            <symbol type="char">:</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>list</word>
+        </block>
+    </block>
+    <block name="paragraph">
+        <block name="word">
+            <word>Definition</word>
+        </block>
+        <block name="newLine"></block>
+        <block name="specialSymbol">
+            <symbol type="char">~</symbol>
+        </block>
+        <block name="space"></block>
+        <block name="word">
+            <word>list</word>
+        </block>
+    </block>
+</block>
+.#-----------------------------------------------------
+.expect|markdown/1.1
+.#-----------------------------------------------------
+Definition  
+  \: list
+
+Definition  
+\~ list
